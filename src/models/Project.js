@@ -23,6 +23,7 @@ export const Project = sequelize.define('project', {
     }
   }) 
 
+// creacion de llaves foraneas
 Project.hasMany(Task, {
     foreignKey: 'projectId',
     sourceKey: 'id_project'
