@@ -1,11 +1,11 @@
 import { Router } from 'express'
-import { getProjects } from '../controllers/projects.controller.js'
+import { createProject, deleteProject, getProjects, updateProject } from '../controllers/projects.controller.js'
 
 const router =  Router()
 
 router.get('/projects', getProjects)
-router.post('/projects',(req, res) => {console.log('Project POST')})
-router.put('/projects')
-router.delete('/projects')
+router.post('/projects',createProject)
+router.put('/projects/:id', updateProject)
+router.delete('/projects/:id', deleteProject)
 
 export default router
