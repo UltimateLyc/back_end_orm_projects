@@ -1,9 +1,10 @@
 import { Project } from '../models/Project.js'
+import { Task } from '../models/Task.js'
 
 // creacion de consulta de base de dartos
 export const getProjects = async (req, res) => {
     try {
-        const response = await Project.findAll()
+        const response = await Project.findAll({include: Task}) // Con include es = a un JOIN
         res.status(200).json(response)
     } catch (error) {
         res.status(500).json({'error': error.message})
